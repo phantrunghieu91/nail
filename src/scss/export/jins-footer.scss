@@ -1,0 +1,30 @@
+@use '../abstracts/' as *;
+
+.footer {
+  &.footer {
+    color: var(--footer-color, var(--color-on-surface));
+    padding-block: 0;
+    container: footer / inline-size;
+    font-size: var(--fs-400);
+    
+    .section__inner {
+      @include container-query(footer, lg) {
+        padding-inline: var(--spacing-125);
+      }
+    }
+  }
+
+  &__bottom {
+    padding-block :var(--spacing-125);
+  }
+
+  .back-to-top.active {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+
+    &:is( :hover, :active ) {
+      background-color: var(--color-primary);
+      color: var(--color-on-primary);
+    }
+  }
+}

@@ -1,0 +1,76 @@
+@use '../abstracts/' as *;
+
+@layer components {
+  .jins-swiper-nav-btn {
+    --_btn-size: 2.25rem;
+    --_space-from-edge: var(--spacing-150);
+    --_icon-size: 1.25rem;
+    --_icon-color: #000;
+    --_btn-bg-color: #fff;
+    --_btn-bg-opacity: .75;
+  
+    width: var(--_btn-size);
+    height: var(--_btn-size);
+    display: grid;
+    place-items: center;
+  
+    background-color: rgb( from var(--_btn-bg-color) r g b / var(--_btn-bg-opacity));
+    border-radius: 50%;
+  
+    cursor: pointer;
+  
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    transform: translateY(-50%);
+  
+    transition: background-color var(--transition-duration);
+  
+    .material-symbols-outlined {
+      font-size: var(--_icon-size);
+      color: var(--_icon-color);
+    }
+  
+    &__next {
+      right: var(--_space-from-edge);
+    }
+  
+    &__prev {
+      left: var(--_space-from-edge);
+    }
+  
+    &:hover {
+      --_btn-bg-opacity: 1;
+    }
+  
+    &:is(.swiper-button-disabled) {
+      display: none;
+    }
+  }
+  
+  .gpw-pagination {
+    position: absolute;
+    z-index: 10;
+  
+    &.swiper-pagination-bullets {
+      padding-block: var(--spacing-50);
+  
+      @include d-flex(row, center);
+  
+      .swiper-pagination-bullet {
+        --swiper-pagination-bullet-inactive-color: #fff;
+        --swiper-pagination-bullet-inactive-opacity: .65;
+        --swiper-pagination-color: #fff;
+        --swiper-pagination-bullet-size: .5rem;
+        --swiper-pagination-bullet-border-radius: calc( var(--swiper-pagination-bullet-size) / 2 );
+        --swiper-pagination-bullet-horizontal-gap: var(--spacing-50);
+  
+        transition: opacity var(--transition-duration), width var(--transition-duration);
+  
+        &-active {
+          --swiper-pagination-bullet-width: calc( var(--swiper-pagination-bullet-size) * 2.5 );
+        }
+      }
+    }
+  }
+}

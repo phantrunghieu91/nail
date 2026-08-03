@@ -1,0 +1,9 @@
+/**
+ * * Converts pixels to rems.
+ *
+ * @param {number} $px - The value in pixels.
+ * @return {number} The converted value in rems.
+ */
+@function to-rem($px) {
+  @return calc($px / 16) * 1rem;
+}

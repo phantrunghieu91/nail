@@ -1,0 +1,31 @@
+.jins-page-pagination {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-125);
+
+  .page-numbers {
+    --_size: 2.5rem;
+    width: var(--_size);
+    height: var(--_size);
+
+    display: grid;
+    place-items: center;
+    
+    background-color: var(--color-surface-bright);
+    border-radius: .5rem;
+
+    font-weight: 700;
+    color: var(--color-on-surface);
+
+    transition: color var(--transition-duration), background-color var(--transition-duration);
+
+    &:not(.current):hover {
+      color: var(--color-secondary)
+    }
+
+    &.current {
+      background-color: var(--color-secondary);
+      color: var(--color-on-secondary);
+    }
+  }
+}

@@ -1,0 +1,28 @@
+@use '../bases';
+@use '../components/jins-button';
+@use '../components/jins-card';
+
+.wpcf7 {
+  &-form-control:is(input[type=text], input[type=email], input[type=tel], select, input[type=date], textarea) {
+    font-size: var(--fs-400);
+    line-height: 1.5;
+    padding-block: .5rem;
+    padding-inline: var(--spacing-175);
+    height: auto;
+    min-height: auto;
+    border-radius: .3125rem;
+
+    &, &:focus-visible {
+      box-shadow: none;
+    }
+
+    &:focus-visible {
+      border-color: var(--gray-color-950);
+    }
+  }
+
+  :is(button).gpw-button {
+    --_gpw-button-padding-block: var(--spacing-125);
+    --_gpw-button-padding-inline: var(--spacing-250);
+  }
+}

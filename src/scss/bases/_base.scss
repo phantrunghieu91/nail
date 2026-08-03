@@ -1,0 +1,92 @@
+@use '../abstracts/' as *;
+
+@layer base {
+  :root {
+    // Colors
+    // --- Accent roles ---
+    --color-primary: #d3cbb1;
+    --color-on-primary: var(--wp--preset--color--white);
+    --color-primary-container: #f2f0ec;
+    --color-on-primary-container: var(--wp--preset--color--white);
+
+    --color-secondary: #F27E1D;
+    --color-on-secondary: var(--wp--preset--color--white);
+    --color-secondary-gradient-from: var(--color-secondary);
+    --color-secondary-gradient-to: #f2a23d;
+    
+    --color-surface: #fff;
+    --color-on-surface: #333;
+    --color-surface-container: #f2f0ec;
+    --color-on-surface-container: #fff;
+    --color-surface-dim: #333;
+    --color-on-surface-dim: var(--wp--preset--color--white);
+
+    --color-success: #00fa9b;
+    --color-on-success: #1F1D1B;
+    --color-error: #b22323;
+    --color-on-error: var(--wp--preset--color--white);
+    --color-gpw: #f7941d;
+    --color-on-gpw: var(--wp--preset--color--white);
+
+
+    // Screen size
+    @each $i, $screen in $breakpoints {
+      --screen-#{$i}: #{$screen};
+    }
+    // Spacing:
+    @each $i, $size in $spacing {
+      --spacing-#{$i}: #{$size};
+    }
+    // Font size
+    @each $i, $size in $font-sizes {
+      --fs-#{$i}: #{$size};
+    }
+    // shadow
+    @each $i, $shadow in $shadows {
+      --shadow-#{$i}: #{$shadow};
+    }
+
+    --transition-duration: 250ms;
+  }
+
+  html > body {
+    font-size: var(--fs-400);
+    line-height: 1.5;
+  }
+
+  p {
+    margin-block-end: var(--spacing-100);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--color-primary);
+  }
+
+  :where(ul, ol)[class] {
+    margin: 0;
+    list-style: none;
+  }
+
+  blockquote {
+    font-size: var(--fs-400);
+    border-color: var(--color-primary);
+
+    &:has(+ *) {
+      margin-block-end: 1.25em;
+    }
+  }
+
+  a {
+    color: var(--color-on-surface);
+
+    &:hover {
+      color: var(--color-secondary);
+    }
+  }
+
+  #content {
+    container: content / inline-size;
+    background-color: var(--color-surface, var(--wp--preset--color--white));
+    color: var(--color-on-surface, #000);
+  }
+}
