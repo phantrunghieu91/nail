@@ -37,6 +37,7 @@
     @each $i, $size in $spacing {
       --spacing-#{$i}: #{$size};
     }
+    --space-between-section: 6.25rem;
     // Font size
     @each $i, $size in $font-sizes {
       --fs-#{$i}: #{$size};
@@ -88,5 +89,13 @@
     container: content / inline-size;
     background-color: var(--color-surface, var(--wp--preset--color--white));
     color: var(--color-on-surface, #000);
+
+    section {
+      padding-block-start: var(--space-between-section);
+
+      &:last-child {
+        margin-block-end: var(--space-between-section);
+      }
+    }
   }
 }
