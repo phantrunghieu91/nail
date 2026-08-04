@@ -1,0 +1,22 @@
+@use '../components/jins-swiper';
+/* ================================= */
+/* =         About section         = */
+/* ================================= */
+.about {
+  padding-block-start: 6.25rem;
+
+  .section__inner {
+    display: grid;
+    grid-template-columns: repeat( var(--_cols, 1), minmax(0, 1fr) );
+    align-items: center;
+    gap: var(--spacing-250) var(--spacing-500);
+  }
+
+  .section__title, .section__description {
+    margin-bottom: var(--spacing-375);
+  }
+
+  @include container-query( content, md, gt ) {
+    --_cols: 2;
+  }
+}

@@ -66,6 +66,7 @@ class Register extends BaseController {
 
     // * Enqueue swiper for page that needs it
     if( is_front_page() ) {
+      $this->enqueueScript( 'jins-home-page', time() );
       $this->enqueueStyle( 'jins-home-page', time() );
     }
   }
