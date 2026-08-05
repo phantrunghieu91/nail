@@ -15,6 +15,9 @@ foreach( $sectionData['images'] as $imgID ) {
 ?>
 <section class="about">
   <div class="section__inner">
+    <div class="about__carousel">
+      <?php get_template_part( 'gpw-templates/global/swiper-template', null, [ 'slide_items' => $slideItems, 'has_nav' => true ] ) ?>
+    </div>
     <div class="about__content">
       <?php if( !empty( $sectionData['sub_title'] ) ) : ?>
         <span class="section__sub-title"><?= esc_html( $sectionData['sub_title'] ) ?></span>
@@ -35,9 +38,6 @@ foreach( $sectionData['images'] as $imgID ) {
           'rounded' => 'full'
         ] );
       } ?>
-    </div>
-    <div class="about__carousel">
-      <?php get_template_part( 'gpw-templates/global/swiper-template', null, [ 'slide_items' => $slideItems, 'has_nav' => true ] ) ?>
     </div>
   </div>
 </section>
