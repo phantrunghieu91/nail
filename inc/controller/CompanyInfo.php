@@ -9,7 +9,7 @@ class CompanyInfo {
   private string $address;
   private string $email;
   private string $phone;
-  private array $socials;
+  private $socials = [];
   public static function getInstance(): CompanyInfo {
     if( !isset( self::$instance ) ) {
       self::$instance = new CompanyInfo();
@@ -28,7 +28,7 @@ class CompanyInfo {
     $this->address = $companyInfo['address']      ?? '';
     $this->email   = $companyInfo['email']        ?? '';
     $this->phone   = $companyInfo['phone_number'] ?? '';
-    $this->socials = $companyInfo['social']       ?? [];
+    $this->socials = isset( $companyInfo['social'] ) && !empty( $companyInfo['social'] ) ? $companyInfo['social'] : [];
   }
   public function getAddress() {
     return $this->address;
