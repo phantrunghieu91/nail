@@ -24,7 +24,7 @@ class CompanyInfo {
       do_action( 'qm/debug', 'ACF function get_field does not exist. CompanyInfo controller cannot be initialized.' );
       return;
     }
-    $companyInfo   = get_field( 'company_information', 'gpw_settings' );
+    $companyInfo   = get_field( 'company_information', 'jins_settings' );
     $this->address = $companyInfo['address']      ?? '';
     $this->email   = $companyInfo['email']        ?? '';
     $this->phone   = $companyInfo['phone_number'] ?? '';
