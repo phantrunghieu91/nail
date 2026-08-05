@@ -29,7 +29,7 @@ foreach( $sectionData['images'] as $imgID ) {
         get_template_part( 'gpw-templates/global/jins-button', null, [
           'label'   => $sectionData['link_to']['label'],
           'href'    => Utils::getUrl( $sectionData['link_to'] ),
-          'variant' => 'filled',
+          'variant' => $sectionData['link_to']['style'],
           'theme'   => 'primary',
           'size'    => 'medium',
           'rounded' => 'full'
