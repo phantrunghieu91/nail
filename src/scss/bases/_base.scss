@@ -5,7 +5,7 @@
     // Colors
     // --- Accent roles ---
     --color-primary: #d3cbb1;
-    --color-on-primary: var(--wp--preset--color--white);
+    --color-on-primary: #333;
     --color-primary-container: #f2f0ec;
     --color-on-primary-container: var(--wp--preset--color--white);
 
@@ -53,6 +53,7 @@
   html > body {
     font-size: var(--fs-400);
     line-height: 1.5;
+    color: var(--color-on-surface);
   }
 
   p {
