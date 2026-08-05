@@ -28,7 +28,7 @@ if( !isset( $slideItems ) || empty( $slideItems ) ) {
     </a>
   <?php endif; ?>
   <?php if( $hasPagination ) : ?>
-    <div class="gpw-pagination"></div>
+    <div class="jins-pagination"></div>
   <?php endif; ?>
   <?php if( $hasScrollbar ) : ?>
     <div class="swiper-scrollbar"></div>
