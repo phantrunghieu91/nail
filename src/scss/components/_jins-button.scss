@@ -110,7 +110,7 @@
 
     &[data-theme=primary] {
       --_accent-color: var(--color-primary);
-      --_accent-color-hover: oklch( from var(--_accent-color) calc(l * 1.2) c h / 1 );
+      --_accent-color-hover: oklch( from var(--_accent-color) calc(l * .8) c h / 1 );
       --_on-accent-color: var(--color-on-primary);
       --_text-color: var(--_accent-color);
       --_text-color-hover: var(--_accent-color-hover);
