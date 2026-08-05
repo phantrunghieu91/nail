@@ -1,15 +1,65 @@
 @use '../components/jins-swiper';
 /* ================================= */
+/* =          Hero section         = */
+/* ================================= */
+.hero {
+  container-type: inline-size;
+  padding-block: 0;
+
+  &__item {
+    display: grid;
+
+    & > * {
+      grid-area: 1 / 1 / 2 / 2;
+    }
+
+    &-banner {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      max-height: 32rem;
+    }
+
+    &-content {
+      align-self: start;
+      margin-inline: auto;
+      padding-block: 3.125rem;
+      padding-inline: clamp(3.125rem, 5cqi, 5rem);
+      width: min( 31.25rem, 100%);
+      height: 100%;
+      background-color: oklch( from var(--color-surface) l c h / .5 );
+
+      display: grid;
+      align-items: center;
+      gap: var(--spacing-375);
+
+      text-align: center;
+
+      @container ( width > 700px ) {
+        margin-inline-end: 6.25rem;
+      }
+    }
+
+    &-title, &-sub-title, &-description {
+      color: var(--color-on-surface);
+      margin-block-end: 0;
+    }
+
+    .jins-pagination {
+      --swiper-pagination-color: var(--color-primary);
+    }
+  }
+}
+/* ================================= */
 /* =         About section         = */
 /* ================================= */
 .about {
-  padding-block-start: 6.25rem;
-
   .section__inner {
     display: grid;
     grid-template-columns: repeat( var(--_cols, 1), minmax(0, 1fr) );
     align-items: center;
-    gap: var(--spacing-250) var(--spacing-500);
+    gap: var(--spacing-800);
   }
 
   .section__title, .section__description {
