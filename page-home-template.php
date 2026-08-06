@@ -9,4 +9,6 @@ get_template_part( 'gpw-templates/home-page/hero-section' );
 
 get_template_part( 'gpw-templates/home-page/about-section' );
 
+get_template_part( 'gpw-templates/home-page/services-section' );
+
 get_template_part( 'gpw-templates/global/footer' );
