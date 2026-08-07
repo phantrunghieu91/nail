@@ -28,7 +28,7 @@ $socials      = $companyInfo->getSocials();
         <ul class="footer__socials">
           <?php foreach( $socials as $social ) : ?>
             <li class="footer__social">
-              <a href="<?= esc_url( $social['link'] ) ?>" class="footer__social-link">
+              <a href="<?= !empty( $social['link']) ? esc_url( $social['link'] ) : 'javascript:void(0);' ?>" class="footer__social-link">
                 <?= wp_get_attachment_image( $social['icon'], 'thumbnail', true, [ 'class' => 'footer__social-icon' ] ) ?>
               </a>
             </li>
