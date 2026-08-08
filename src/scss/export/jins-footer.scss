@@ -95,6 +95,7 @@
     .section__inner {
       display: grid;
       grid-template-columns: repeat(var(--_cols, 1), minmax(0, 1fr));
+      gap: var(--spacing-500) 0;
     }
   }
 
@@ -109,6 +110,23 @@
     &:is( :hover, :active) {
       background-color: var(--color-surface-dim);
       color: var(--color-on-surface-dim);
+    }
+  }
+
+  @include container-query(footer, md) {
+    &__main {
+      .footer__title {
+        text-align: center;
+      }
+
+      .wpcf7-form {
+        width: fit-content;
+        margin-inline: auto;
+
+        .jins-button {
+          margin-inline: auto;
+        }
+      }
     }
   }
 
