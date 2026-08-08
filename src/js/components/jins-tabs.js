@@ -7,6 +7,7 @@ export default class JinsTabs {
     
     // Process each tab container separately
     tabContainers.forEach(container => {
+      const navMenu = container.querySelector('.jins-tabs__nav-menu');
       const navItems = Array.from(container.querySelectorAll('.jins-tabs__nav-item'));
       const panelElements = Array.from(container.querySelectorAll('.jins-tabs__panel'));
       
@@ -20,24 +21,35 @@ export default class JinsTabs {
       
       // Store the group
       this.tabGroups.push({ container, navItems, panels });
-      
+
       // Add event listeners for this group
-      this.addEvents(navItems, panels);
-    });
-  }
-  
-  addEvents(navItems, panels) {
-    navItems.forEach(navItem => {
-      navItem.addEventListener('click', event => {
-        this.handleSwitchTab(event, navItem, navItems, panels);
+      container.addEventListener('jins_tabs:switch_tab', event => {
+        const { clickedNavItem } = event.detail;
+        this.handleSwitchTab( clickedNavItem, navItems, panels );
+      });
+      
+      navMenu.addEventListener('click', event => {
+        const target = event.target;
+        const navItem = target.closest( '.jins-tabs__nav-item' );
+        if( ! navItem ) {
+          return;
+        }
+        const switchTabEvent = new CustomEvent('jins_tabs:switch_tab', {
+          detail: {
+            clickedNavItem: navItem
+          },
+        });
+        container.dispatchEvent(switchTabEvent);
       });
     });
   }
   
-  handleSwitchTab(event, self, navItems, panels) {
+  handleSwitchTab(self, navItems, panels) {
     if(self.getAttribute('aria-selected') === 'true') {
       return;
     }
+
+
     
     const currentSelectedTab = navItems.find(item => item.getAttribute('aria-selected') === 'true');
     const currentSelectedPanel = panels[currentSelectedTab.getAttribute('aria-controls')];
