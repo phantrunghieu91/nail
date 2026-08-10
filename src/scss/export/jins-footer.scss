@@ -101,7 +101,11 @@
 
   &__bottom {
     padding-block: var(--spacing-125);
+    text-align: center;
   }
+  &__copyright, &__designed-by {
+   margin-block-end: 0;
+ }
 
   .back-to-top.active {
     color: var(--color-surface-dim);
