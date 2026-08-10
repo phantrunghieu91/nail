@@ -62,12 +62,18 @@ class Register extends BaseController {
     $this->enqueueStyle( 'theme-init', time() );
     $this->enqueueStyle( 'google-symbols', null, 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200' );
 
+    $this->enqueueStyle( 'jins-header', time() );
     $this->enqueueStyle( 'jins-footer', time() );
 
     // * Enqueue swiper for page that needs it
     if( is_front_page() ) {
-      $this->enqueueScript( 'jins-home-page', time() );
+      $this->enqueueScript( 'jins-home-page', time(), true );
       $this->enqueueStyle( 'jins-home-page', time() );
+    }
+
+    if( is_page( [141] )) {
+      $this->enqueueScript( 'jins-gallery-page', time(), true );
+      $this->enqueueStyle( 'jins-gallery-page', time() );
     }
   }
   public function setTypeForModuleScripts() {

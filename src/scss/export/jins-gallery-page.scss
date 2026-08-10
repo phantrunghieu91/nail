@@ -1,0 +1,72 @@
+@use '../components/jins-tabs';
+.galleries {
+  .section__title {
+    margin-block-end: clamp(var(--spacing-600), 10cqi, var(--spacing-800));
+    font-size: var(--fs-800);
+  }
+
+  .jins-tabs {
+    &__nav {
+      margin-block-end: var(--spacing-600);
+
+      &-menu {
+        justify-content: center;
+      }
+
+      &-item {
+        &[aria-selected=false]:hover {
+          --_text-color: var(--color-on-primary);
+          --_border-color: var(--color-primary);
+        }
+      }
+    }
+  }
+
+  &__grid {
+    --_grid-gap: var(--spacing-300);
+  }
+
+  &__item {
+    margin-block-end: 0;
+
+    &-img {
+      aspect-ratio: 1;
+      overflow: hidden;
+      border-radius: .5rem;
+
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+
+        transition: scale var(--transition-duration);
+      }
+    }
+
+    &-label {
+      margin-block-start: var(--spacing-200);
+      font-size: var(--fs-500);
+      font-weight: 700;
+      text-align: center;
+    }
+
+    &:hover {
+      img {
+        scale: 1.05;
+      } 
+    }
+  }
+
+  @include container-query( content, sm, gt ) {
+    &__grid {
+      --_grid-cols: 2;
+    }
+  }
+
+  @include container-query( content, md, gt ) {
+    &__grid {
+      --_grid-cols: 3;
+    }
+  }
+}
