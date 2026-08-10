@@ -16,9 +16,13 @@
     
     --color-surface: #fff;
     --color-on-surface: #333;
+    --color-on-surface-variant: #8a8a8a;
     --color-surface-container: #f2f0ec;
     --color-surface-dim: #333;
     --color-on-surface-dim: var(--wp--preset--color--white);
+
+    --color-outline: #333;
+    --color-outline-variant: oklch( from var(--color-outline) l c h / .25 );
 
     --color-success: #00fa9b;
     --color-on-success: #1F1D1B;
