@@ -1,0 +1,7 @@
+.header {
+  container: header / inline-size;
+
+  .menu-item a {
+    font-size: var(--fs-400);
+  }
+}
