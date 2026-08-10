@@ -77,14 +77,14 @@
       &--pills {
         #{$class}__nav-item {
           padding: var(--spacing-75) var(--spacing-175);
-          border: 0.0625rem solid var(--_border-color, var(--color-on-surface-container));
+          border: 0.0625rem solid var(--_border-color, var(--color-on-surface));
           border-radius: var(--_border-radius, 2rem);
           background-color: var(--_background-color, transparent);
   
           &[aria-selected='true'] {
             --_background-color: var(--color-primary);
             --_border-color: var(--_background-color);
-            --_text-color: #fff;
+            --_text-color: var(--color-on-primary);
           }
   
           &[aria-selected='false']:hover {
