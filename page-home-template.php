@@ -13,4 +13,6 @@ get_template_part( 'gpw-templates/home-page/services-section' );
 
 get_template_part( 'gpw-templates/home-page/why-choose-us-section' );
 
+get_template_part( 'gpw-templates/global/customer-review-section' );
+
 get_template_part( 'gpw-templates/global/footer' );
