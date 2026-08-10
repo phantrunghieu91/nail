@@ -1,15 +1,13 @@
 @layer components {
   .jins-tabs {
     $class: &;
-  
-    &:has(&__nav--default) {
-      --_border-color: var(--_text-color, var(--color-on-surface-container));
-      --_border-width: 0.0625rem;
-      --_active-bg-color: var(--color-surface-container);
-    }
+    --_text-color: var(--color-on-surface);
+    --_border-color: var(--_text-color);
+    --_border-width: 0.0625rem;
+    --_active-bg-color: var(--color-primary);
   
     &__nav {
-      &--underline:has(.tabs__nav-menu[aria-orientation='horizontal']) {
+      &--underline:has(.jins-tabs__nav-menu[aria-orientation='horizontal']) {
         overflow: auto;
   
         #{$class}__nav-menu {
@@ -36,7 +34,7 @@
         cursor: pointer;
         font-size: var(--fs-400);
   
-        color: var(--_text-color, var(--color-on-surface-variant));
+        color: var(--_text-color);
   
         transition: all 200ms;
       }
@@ -46,7 +44,7 @@
   
         white-space: nowrap;
   
-        .tabs__nav-item {
+        #{$class}__nav-item {
           padding-block: var(--spacing-125);
           padding-inline: var(--spacing-150);
         
@@ -57,28 +55,27 @@
             left: 0;
             width: 100%;
             height: var(--_underline-height);
-            background-color: currentColor;
+            background-color: var(--_border-color);
             opacity: 0;
   
             transition: opacity 300ms;
           }
   
           &[aria-selected='true'] {
-            color: var(--color-primary);
-  
             &::after {
               opacity: 1;
             }
           }
   
           &[aria-selected='false']:hover {
-            color: var(--color-primary);
+            background-color: oklch(from var(--color-surface-dim) l c h / .35);
+            color: var(--color-on-surface-dim);
           }
         }
       }
   
       &--pills {
-        .tabs__nav-item {
+        #{$class}__nav-item {
           padding: var(--spacing-75) var(--spacing-175);
           border: 0.0625rem solid var(--_border-color, var(--color-on-surface-container));
           border-radius: var(--_border-radius, 2rem);

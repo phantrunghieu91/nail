@@ -22,8 +22,8 @@ $validStyles = ['default', 'underline', 'pills', 'dot-after'];
 if (empty($navItems)) {
   return;
 }
-$classes = ['tabs__nav'];
-$classes[] = in_array( $style, $validStyles ) ? "tabs__nav--$style" : "tabs__nav--" . reset($validStyles);
+$classes = ['jins-tabs__nav'];
+$classes[] = in_array( $style, $validStyles ) ? "jins-tabs__nav--$style" : "jins-tabs__nav--" . reset($validStyles);
 ?>
 <div class="jins-tabs">
   <nav class="<?= esc_attr(trim( implode(' ', $classes ))) ?>" role="navigation" aria-label="Tabs navigation" <?php if ($hasAos) echo 'data-aos="fade-up"'; ?>>
@@ -31,7 +31,7 @@ $classes[] = in_array( $style, $validStyles ) ? "tabs__nav--$style" : "tabs__nav
       <?php foreach ($navItems as $idx => $navItem): ?>
         <li class="jins-tabs__nav-item" role="tab" aria-controls="panel-<?= esc_attr($navItem['id']) ?>"
           id="tab-<?= esc_attr($navItem['id']) ?>" aria-selected="<?= esc_attr($idx == $activeIndex ? 'true' : 'false') ?>">
-          <?= esc_html($navItem['title']) ?>
+          <?= wp_kses_post($navItem['title']) ?>
         </li>
       <?php endforeach ?>
     </ul>
