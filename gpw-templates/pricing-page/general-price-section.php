@@ -43,10 +43,10 @@ if( empty( $sectionData['price'] ) ) {
                   <?php if( !empty( $item['description'] ) ) :?>
                     <div class="general-price__service-description"><?= esc_html( $item['description' ] ) ?></div>
                   <?php endif ?>
-                  <?php if( !empty( $item['price'] ) ) :?>
-                    <div class="general-price__service-price"><?= esc_html( $item['price' ] ) ?></div>
-                  <?php endif ?>
-                  <span class="general-price__service-price-note"><?= __( '(inclusive of GST)', 'gpw' ) ?></span>
+                  <?php if( !empty( $item['price'] ) ) {
+                    echo jins_render_price( $item['price'], 'general-price__service' );
+                  } ?>
+                  
                 </li>
               <?php endforeach ?>
             </ul>

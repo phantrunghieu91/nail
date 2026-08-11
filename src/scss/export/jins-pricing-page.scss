@@ -97,10 +97,12 @@
 
       &-price {
         grid-area: 1 / 2 / 2 / 3;
+        align-self: end;
       }
 
       &-price-note {
         grid-area: 2 / 2 / 3 / 3;
+        font-size: var(--fs-200);
       }
     }
   }
