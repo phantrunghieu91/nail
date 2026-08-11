@@ -14,7 +14,7 @@ if( empty( $sectionData['price'] ) ) {
     <header class="general-price__header">
       <h2 class="section__title section__title--center"><?= esc_html( $sectionData['title'] ) ?></h2>
       <?php if( $sectionData['description'] ) : ?>
-        <div class="section__description"><?= wp_kses_post( $sectionData['description'] ) ?></div>
+        <div class="section__description section__description--center"><?= wp_kses_post( $sectionData['description'] ) ?></div>
       <?php endif ?>
     </header>
     <?php endif ?>
