@@ -1,0 +1,48 @@
+.contact-information {
+  &__main {
+    margin-inline: auto;
+    width: min( 62.5rem, 100% );
+    display: grid;
+    grid-template-columns: repeat(var(--_cols, 1), minmax(0, 1fr));
+    gap: var(--spacing-500);
+  }
+
+  &__extra-content {
+    columns: 2;
+    column-gap: var(--spacing-300);
+  }
+
+  &__content + &__content {
+    margin-block-start: var(--spacing-300);
+  }
+
+  .wpcf7-form {
+    margin-block-end: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 0 var(--spacing-250);
+
+    label > :not(span[class]) {
+      display: inline-block;
+      margin-block-end: var(--spacing-50);
+    }
+
+    label:is([for=your-name], [for=your-email], [for=your-phone]) {
+      grid-column: 1 / 2;
+    }
+
+    label[for=your-message] {
+      grid-area: 1 / 2 / 4 / 3;
+    }
+
+    .jins-button {
+      --_padding-inline: var(--spacing-700);
+      grid-column: 1 / 3;
+      margin-inline: auto;
+    }
+  }
+
+  @include container-query( content, md, gt ) {
+    --_cols: 2;
+  }
+}
