@@ -13,3 +13,16 @@ if( !function_exists( 'jins_render_image' ) ) {
     );
   }
 }
+
+if( !function_exists( 'jins_render_price' ) ) {
+  function jins_render_price( $price_text, $class ) {
+    if( empty( $price_text ) ) {
+      return '';
+    }
+    return sprintf( '<div class="%s-price">%s</div><span class="general-price__service-price-note">%s</span>',
+      $class ? esc_attr( $class ) : 'jins',
+      esc_html( $price_text ),
+      __( '(inclusive of GST)', 'gpw' )
+    );
+  }
+}
