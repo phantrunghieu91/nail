@@ -79,6 +79,10 @@ class Register extends BaseController {
     if( is_page( [32] )) {
       $this->enqueueStyle( 'jins-contact-page', time() );
     }
+
+    if( is_page( [271] )) {
+      $this->enqueueStyle( 'jins-pricing-page', time() );
+    }
   }
   public function setTypeForModuleScripts() {
     if( empty( $this->module_scripts ) ) {
