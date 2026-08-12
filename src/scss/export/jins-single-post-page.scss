@@ -1,0 +1,30 @@
+.single-post {
+  --_single-post-border-color: oklch( 0 0 0 / .2 );
+
+  &__header {
+    padding-block-end: var(--spacing-375);
+    margin-block-end: var(--spacing-375);
+    border-bottom: .0625rem solid var(--_single-post-border-color);
+  }
+
+  &__post-date {
+    display: inline-block;
+    margin-block-end: var(--spacing-250);
+  }
+
+  &__title {
+    font-size: var(--fs-900);
+    line-height: 1.05;
+    margin-block-end: var(--spacing-250);
+  }
+
+  img {
+    border-radius: .5rem;
+  }
+
+  &__footer {
+    padding-block-start: var(--spacing-375);
+    margin-block-start: var(--spacing-375);
+    border-top: .0625rem solid var(--_single-post-border-color);
+  }
+}
