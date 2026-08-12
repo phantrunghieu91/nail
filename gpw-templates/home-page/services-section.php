@@ -27,7 +27,7 @@ if( empty( $sectionData['service'] ) ) {
         <?php foreach( $sectionData['service'] as $service ) :
           $url = Utils::getUrl( $service['link_to'] );
           ?>
-          <article class="jins-card jins-card--padded our-services__item">
+          <article class="jins-card our-services__item" data-variant="padded">
             <a href="<?= $url ?>" class="jins-card__thumbnail">
               <?= wp_get_attachment_image( $service['image'], 'medium_large', false, [ 'alt' => $service['label'] ] ) ?>
             </a>

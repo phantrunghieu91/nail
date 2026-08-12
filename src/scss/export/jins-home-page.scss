@@ -183,7 +183,7 @@
 .customer-review {
   --_padding-content: var(--spacing-200);
 
-  margin-block-start: var(--space-between-section);
+  margin-block: var(--space-between-section) 0;
   padding-block-end: var(--space-between-section);
   background-repeat: no-repeat;
   background-size: cover;
