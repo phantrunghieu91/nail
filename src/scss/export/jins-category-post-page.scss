@@ -1,0 +1,44 @@
+@use '../components/jins-page-pagination';
+.archive-post {
+  margin-block-end: 0;
+  padding-block-end: var(--space-between-section);
+  background-color: var(--color-primary-container);
+
+  &__title {
+    text-align: center;
+    margin-bottom: var(--spacing-900);
+  }
+
+  &__post-grid {
+    display: grid;
+    grid-template-columns: repeat(var(--_cols, 1), minmax(0, 1fr));
+    gap: var(--spacing-250);
+  }
+
+  .jins-card {
+    --_card-border-radius: .5rem;
+    --_card-thumbnail-aspect-ratio: 16/9;
+    --_card-content-padding-block: var(--spacing-250);
+    --_card-content-padding-inline: var(--spacing-250);
+
+    &__content {
+      --_fixed-height: true;
+    }
+
+    &__excerpt {
+      --_line-clamp: 3;
+    }
+  }
+
+  &__pagination {
+    margin-block-start: var(--spacing-500);
+  }
+
+  @include container-query( content, sm, gt ) {
+    --_cols: 2;
+  }
+
+  @include container-query( content, md, gt ) {
+    --_cols: 3;
+  }
+}
