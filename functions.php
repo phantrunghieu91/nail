@@ -2,7 +2,7 @@
 defined( 'ABSPATH' ) || exit;
 
 // Placeholder image id constant
-define( 'PLACEHOLDER_IMAGE_ID', 10 );
+define( 'PLACEHOLDER_IMAGE_ID', 313 );
 define( 'JINS_CURRENT_LANGUAGE', function_exists( 'pll_current_language' ) ? pll_current_language() : 'en' );
 if( function_exists( 'wc_get_page_id' ) ) {
   define( 'GPW_SHOP_PAGE_ID', wc_get_page_id( 'shop' ) );
