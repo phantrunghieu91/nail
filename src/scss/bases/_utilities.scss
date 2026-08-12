@@ -162,6 +162,10 @@
     width: min(var(--_section-inner-max-width), calc(100% - var(--_section-inner-padding-inline) * 2));
     margin-inline: auto;
 
+    &[data-width=medium] {
+      --_section-inner-max-width: var(--screen-md);
+    }
+
     &[data-width=extra-large] {
       --_section-inner-max-width: var(--screen-xl);
       --_section-inner-padding-inline: var(--spacing-250);
