@@ -67,7 +67,12 @@ class Register extends BaseController {
     $this->enqueueStyle( 'jins-header', time() );
     $this->enqueueStyle( 'jins-footer', time() );
 
-    // * Enqueue swiper for page that needs it
+    // * Enqueue fancybox for page that needs it
+    if( is_page( [271] ) ) {
+      $this->enqueueScript( 'fancybox', time() );
+      $this->enqueueStyle( 'fancybox', time() );
+    }
+
     if( is_front_page() ) {
       $this->enqueueScript( 'jins-home-page', time() );
       $this->enqueueStyle( 'jins-home-page', time() );
@@ -91,6 +96,7 @@ class Register extends BaseController {
     }
 
     if( is_page( [271] ) ) {
+      $this->enqueueScript( 'jins-pricing-page', time() );
       $this->enqueueStyle( 'jins-pricing-page', time() );
     }
   }
