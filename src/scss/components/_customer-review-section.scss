@@ -1,0 +1,146 @@
+@use '../abstracts/' as *;
+@use '../components/jins-tabs';
+.customer-review {
+  --_padding-content: var(--spacing-200);
+
+  margin-block: var(--space-between-section) 0;
+  padding-block-end: var(--space-between-section);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &__header {
+    margin-block-end: var(--spacing-500);
+  }
+
+  .section__title, .section__description {
+    color: var(--color-on-surface-dim);
+  }
+
+  .jins-tabs {
+    background-color: var(--color-surface);
+    border-radius: 1rem;
+    overflow: hidden;
+
+    &__nav {
+      border-bottom: .06256rem solid var(--color-outline-variant);
+    }
+
+    &__nav-menu {
+      gap: 0;
+    }
+
+    &__nav-item {
+      padding-inline: var(--_padding-content);
+      padding-block: var(--_padding-content);
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-100);
+
+      img {
+        display: block;
+        width: 1.5rem;
+        aspect-ratio: 1;
+      }
+    }
+
+    &__panel {
+      padding: var(--_padding-content);
+    }
+  }
+
+  &__platform {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-150);
+
+    .rating {
+      padding-inline-end: var(--spacing-200);
+      border-right: .0625rem solid var(--color-outline);
+    }
+  }
+
+  :where(.rating, .review__rating) > i {
+    color: #F6BB06;
+  }
+
+  &__carousel {
+    --_slides-per-view: 1;
+    --_space-between: var(--spacing-250);
+
+    margin-block-start: var(--spacing-250);
+
+    .swiper-slide {
+      width: calc( (100% - (var(--_slides-per-view) - 1) * var(--_space-between)) / var(--_slides-per-view) );
+      margin-inline-end: var(--_space-between);
+
+      &[aria-hidden=true] {
+        display: none;
+      }
+    }
+  }
+
+  .review {
+    --_avatar-size: 2.5rem;
+    --_platform-icon-size: 1.25rem;
+
+    padding: var(--_padding-content);
+    border-radius: .625rem;
+    overflow: hidden;
+    background-color: var(--color-surface);
+
+    &__header {
+      display: grid;
+      grid-template-columns: var(--_avatar-size) 1fr var(--_platform-icon-size);
+      grid-template-rows: repeat(3, auto);
+      grid-template-areas: 'avatar name icon' 'avatar meta icon' 'rating rating rating';
+      gap: 0 var(--spacing-100);
+    }
+
+    &__avatar {
+      grid-area: avatar;
+
+      img {
+        display: block;
+        width: var(--_avatar-size);
+        aspect-ratio: 1;
+        border-radius: 50%;
+      }
+    }
+
+    &__name {
+      grid-area: name;
+    }
+
+    &__meta {
+      grid-area: meta;
+      margin-block-end: 0;
+      font-size: var(--fs-100);
+      color: var(--color-on-surface-variant);
+    }
+
+    &__platform-icon {
+      grid-area: icon;
+    }
+
+    &__rating {
+      grid-area: rating;
+      margin-block-start: var(--spacing-125);
+    }
+
+    &__message {
+      --_line-clamp: 4;
+    }
+  }
+
+  @include container-query( content, sm, gt ) {
+    &__carousel {
+      --_slides-per-view: 2;
+    }
+  }
+
+  @include container-query( content, md, gt ) {
+    &__carousel {
+      --_slides-per-view: 4;
+    }
+  }
+}
