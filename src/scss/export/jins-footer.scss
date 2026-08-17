@@ -39,7 +39,7 @@
       }
 
       :where(&[aria-current], &:hover) a {
-        color: var(--color-on-surface-dim);
+        color: var(--color-secondary);
       }
     }
   }
