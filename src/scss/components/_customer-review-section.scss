@@ -1,5 +1,7 @@
 @use '../abstracts/' as *;
 @use '../components/jins-tabs';
+@use '../components/jins-swiper';
+
 .customer-review {
   --_padding-content: var(--spacing-200);
 
@@ -129,6 +131,14 @@
 
     &__message {
       --_line-clamp: 4;
+
+      p {
+        margin-block-end: 0;
+      }
+
+      p + p {
+        margin-block-start: var(--spacing-100);
+      }
     }
   }
 
