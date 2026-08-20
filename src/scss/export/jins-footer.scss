@@ -242,6 +242,20 @@
 
   .wpcf7 {
     --_form-control-border-color: var(--color-on-surface);
+
+    &-form {
+      margin-block-end: 0;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0 var(--spacing-125);
+    }
+
+    &-form-control-wrap:not([data-name=your-phone], [data-name=your-email], [data-name=booking-date], [data-name=booking-time]),
+    &__form-group,
+    .jins-button {
+      grid-column: 1 / -1;
+    }
+
     &-form-control {
       border-color: var(--_form-control-border-color);
     }
@@ -252,6 +266,11 @@
       border: .0625rem solid var(--_form-control-border-color);
       border-radius: .3125rem;
       background-color: var(--color-surface);
+    }
+
+    input[type=checkbox] {
+      margin-inline-end: var(--spacing-50);
+      margin-block-end: 0;
     }
   }
 }
