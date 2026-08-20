@@ -21,6 +21,8 @@
 
 </footer>
 
+<?php get_template_part( 'gpw-templates/footer/fixed-social-icons' ); ?>
+
 </div>
 
 <?php wp_footer(); ?>

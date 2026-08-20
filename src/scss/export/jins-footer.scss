@@ -152,3 +152,106 @@
     }
   }
 }
+
+.fixed-social-icons {
+  --_icon-size: clamp(2.5rem, 5vw, 3.75rem);
+  position: fixed;
+  z-index: 100;
+  left: .9375rem;
+  bottom: .9375rem;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-125);
+  }
+
+  &__item {
+    margin-block-end: 0;
+    img {
+      display: block;
+      width: var(--_icon-size);
+      height: var(--_icon-size);
+    }
+  }
+}
+
+.booking-popover {
+  --_bg-color: var(--color-primary);
+  --_border-radius: 2rem;
+  --_spacing-with-outer: 1rem;
+  --_outer-border-radius: calc( var(--_border-radius) + var(--_spacing-with-outer) / 2);
+  --_translate-y: 5rem;
+
+  isolation: isolate;
+  display: none;
+  padding: var(--spacing-200);
+  width: min( 25rem, 100% - 1.25rem );
+  overflow: visible;
+  outline: .0625rem solid var(--color-surface-dim);
+  border-radius: var(--_border-radius) 0;
+
+  opacity: 0;
+  translate: 0 var(--_translate-y);
+
+  transition-behavior: allow-discrete;
+  transition-property: display, overlay, opacity, translate;
+  transition-duration: 400ms;
+
+  &:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: calc(var(--_spacing-with-outer) * -1);
+    left: calc(var(--_spacing-with-outer) * -1);
+    width: calc( 100% + var(--_spacing-with-outer) * 2);
+    height: calc( 100% + var(--_spacing-with-outer) * 2);
+    background-color: var(--_bg-color);
+    border-radius: var(--_outer-border-radius) 0;
+  }
+
+  &::backdrop {
+    background-color: oklch( 0 0 0 / .75 );
+  }
+
+  &:popover-open {
+    display: block;
+    opacity: 1;
+    translate: 0 0;
+
+    @starting-style {
+      opacity: 0;
+      translate: 0 calc( -1 * var(--_translate-y) );
+    }
+  }
+
+  &__close-btn {
+    position: absolute;
+    top: .625rem;
+    right: .625rem;
+
+    &:hover {
+      color: var(--color-secondary);
+    }
+  }
+
+  .section__title {
+    text-transform: capitalize;
+    margin-block-end: var(--spacing-400);
+  }
+
+  .wpcf7 {
+    --_form-control-border-color: var(--color-on-surface);
+    &-form-control {
+      border-color: var(--_form-control-border-color);
+    }
+
+    &__form-group {
+      padding: .625rem;
+      margin-block-end: 1em;
+      border: .0625rem solid var(--_form-control-border-color);
+      border-radius: .3125rem;
+      background-color: var(--color-surface);
+    }
+  }
+}
