@@ -28,7 +28,7 @@
     &:is(:hover, :focus-visible) {
       background-color: var(--_background-color-hover, transparent);
       border-color: var(--_border-color-hover, transparent);
-      color: var(--_text-color-hover, var(--color-primary));
+      color: var(--_text-color-hover, var(--color-secondary));
     }
 
     &:has(.material-symbols-outlined) {
