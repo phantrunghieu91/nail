@@ -99,6 +99,10 @@ class Register extends BaseController {
       $this->enqueueScript( 'jins-pricing-page', time() );
       $this->enqueueStyle( 'jins-pricing-page', time() );
     }
+
+    if( is_page( [26] ) ) {
+      $this->enqueueStyle( 'jins-about-page', time() );
+    }
   }
   public function setTypeForModuleScripts() {
     if( empty( $this->module_scripts ) ) {
