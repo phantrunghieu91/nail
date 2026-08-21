@@ -4,6 +4,7 @@
 .hero {
   container-type: inline-size;
   padding-block: 0;
+  display: block;
 
   &__item {
     display: grid;
