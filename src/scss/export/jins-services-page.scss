@@ -1,0 +1,15 @@
+.services {
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(var(--_cols, 1), minmax(0, 1fr));
+    gap: var(--spacing-250);
+  }
+
+  @include container-query( content, sm, gt ) {
+    --_cols: 2;
+  }
+
+  @include container-query( content, md, gt ) {
+    --_cols: 3;
+  }
+}
