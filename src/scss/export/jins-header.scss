@@ -2,7 +2,7 @@
   container: header / inline-size;
 
   .header-bottom {
-    .flex-col {
+    .flex-col.flex-center {
       flex: 1 0 100%;
     }
 
@@ -10,7 +10,7 @@
       width: 100%;
       justify-content: space-evenly;
       align-items: center;
-      gap: var(--spacing-500);
+      gap: var(--spacing-250);
 
       & > .menu-item {
         margin-inline: 0;
@@ -27,10 +27,6 @@
   }
 
   .menu-item a {
-    font-size: var(--fs-500);
-  }
-
-  .jins-button {
-    --_padding-inline: var(--spacing-500);
+    font-size: var(--fs-400);
   }
 }
