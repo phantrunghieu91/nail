@@ -45,6 +45,8 @@
     @each $i, $size in $font-sizes {
       --fs-#{$i}: #{$size};
     }
+    --ff-heading: "Bodoni Moda", sans-serif;
+    --ff-base: "Albert Sans", sans-serif;
     // shadow
     @each $i, $shadow in $shadows {
       --shadow-#{$i}: #{$shadow};
