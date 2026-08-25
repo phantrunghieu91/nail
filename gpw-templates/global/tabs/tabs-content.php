@@ -26,7 +26,7 @@ $activeIndex = $args[ 'active_index' ] ?? 0;
         id="panel-<?= esc_attr( $panel[ 'id' ] ) ?>"
         aria-labelledby="tab-<?= esc_attr( $panel[ 'id' ] ) ?>"
         aria-hidden="<?= esc_attr( $hidden ) ?>"
-      ><?= wp_kses_post( $panel[ 'content' ] ) ?></div>
+      ><?= $panel[ 'content' ] ?></div>
     <?php endforeach ?>
   </div>
 </div>

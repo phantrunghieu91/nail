@@ -7,6 +7,10 @@ $sectionData = get_field( 'contact_information' );
 if( empty( $sectionData['cf7_sc'] ) ) {
   return;
 }
+$companyInfo = gpweb\inc\controller\CompanyInfo::getInstance();
+$email = $companyInfo->getEmail();
+$phone = $companyInfo->getPhoneNumber();
+$socials = $companyInfo->getSocials();
 ?>
 <section class="contact-information">
   <div class="section__inner">
@@ -19,22 +23,34 @@ if( empty( $sectionData['cf7_sc'] ) ) {
       <?php endif ?>
     </header>
     <main class="contact-information__main">
-      <?php if( !empty( $sectionData['extra_content'] ) ): ?>
-      <aside class="contact-information__extra-content">
-        <?php foreach( $sectionData['extra_content'] as $content ) :
-          if( empty( $content['label'] ) && empty( $content['content'] ) ) continue;
-          ?>
-          <div class="contact-information__content">
-            <?php if( !empty( $content['label'] ) ) : ?>
-              <h3 class="contact-information__content-title"><?= esc_html( $content['label'] ) ?></h3>
-            <?php endif ?>
-            <?php if( !empty( $content['content'] ) ) : ?>
-              <div class="contact-information__content-desc"><?= wp_kses_post( $content['content'] ) ?></div>
-            <?php endif ?>
-          </div>
-        <?php endforeach ?>
+      <aside class="contact-information__info">
+        <?php if( !empty( $sectionData['contact_content']['title'] ) ): ?>
+          <h3 class="contact-information__title"><?= esc_html( $sectionData['contact_content']['title'] ) ?></h3>
+        <?php endif ?>
+        <?php if( !empty( $email ) ) : ?>
+          <p class="contact-information__info-item email">
+            <strong><?= __('Email', 'gpweb') ?>: </strong>
+            <a href="mailto:<?= esc_attr( $email ) ?>"><?= esc_html( $email ) ?></a>
+          </p>
+        <?php endif ?>
+        <?php if( !empty( $phone ) ) : ?>
+          <p class="contact-information__info-item phone">
+            <strong><?= __('Phone number', 'gpweb') ?>: </strong>
+            <a href="tel:<?= esc_attr( $phone ) ?>"><?= esc_html( $phone ) ?></a>
+          </p>
+        <?php endif ?>
+        <?php if( !empty( $socials )): ?>
+          <ul class="contact-information__socials">
+            <?php foreach( $socials as $social ) : ?>
+              <li class="contact-information__social">
+                <a href="<?= !empty( $social['link']) ? esc_url( $social['link'] ) : 'javascript:void(0);' ?>" class="contact-information__social-link">
+                  <?= wp_get_attachment_image( $social['icon'], 'thumbnail', true, [ 'class' => 'contact-information__social-icon' ] ) ?>
+                </a>
+              </li>
+            <?php endforeach ?>
+          </ul>
+        <?php endif ?>
       </aside>
-      <?php endif ?>
       <?= do_shortcode( $sectionData['cf7_sc'] ) ?>
     </main>
   </div>
