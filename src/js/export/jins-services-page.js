@@ -1,11 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const pricingCtrl = {
+  const packageCtrl = {
     init() {
       try {
-        this.wrapperEls = [...document.querySelectorAll('.pricing__item')];
-        if( this.wrapperEls.length == 0 ) {
-          throw new Error('Swiper elements can NOT be found!');
-        }
         this.initSwiper();
         this.bindFancybox();
       } catch (error) {
@@ -15,6 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
     initSwiper() {
       if( typeof Swiper === undefined ) {
         throw new Error('Swiper library have NOT registered!');
+      }
+      this.wrapperEls = [...document.querySelectorAll('.packages__item')];
+      if( this.wrapperEls.length == 0 ) {
+        throw new Error('Swiper elements can NOT be found!');
       }
       this.wrapperEls.forEach( wrapperEl => {
         const swiperEl = wrapperEl.querySelector('.swiper');
@@ -30,8 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if( typeof Fancybox === undefined ) {
         throw new Error('Fancybox library have NOT registered!');
       }
-      this.wrapperEls.forEach( wrapperEl => {
-        const gallerySlug = `service-${wrapperEl.id}`;
+      this.wrapperEls.forEach( swiperEl => {
+        const gallerySlug = `gallery-${swiperEl.dataset.slug}`;
         Fancybox.bind(`[data-fancybox="${gallerySlug}"]`, {
           Thumbs: {
             type: 'classic',
@@ -40,5 +40,5 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   };
-  pricingCtrl.init();
+  packageCtrl.init();
 });

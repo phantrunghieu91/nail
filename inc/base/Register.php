@@ -68,7 +68,7 @@ class Register extends BaseController {
     $this->enqueueStyle( 'jins-footer', time() );
 
     // * Enqueue fancybox for page that needs it
-    if( is_page( [271] ) ) {
+    if( is_page( [271, 478] ) ) {
       $this->enqueueScript( 'fancybox', time() );
       $this->enqueueStyle( 'fancybox', time() );
     }
@@ -96,8 +96,8 @@ class Register extends BaseController {
     }
 
     if( is_page( [271] ) ) {
-      $this->enqueueScript( 'jins-pricing-page', time() );
-      $this->enqueueStyle( 'jins-pricing-page', time() );
+      $this->enqueueScript( 'jins-services-page', time() );
+      $this->enqueueStyle( 'jins-services-page', time() );
     }
 
     if( is_page( [26] ) ) {
@@ -105,7 +105,8 @@ class Register extends BaseController {
     }
 
     if( is_page( [478] ) ) {
-      $this->enqueueStyle( 'jins-services-page', time() );
+      $this->enqueueScript( 'jins-pricing-page', time() );
+      $this->enqueueStyle( 'jins-pricing-page', time() );
     }
   }
   public function setTypeForModuleScripts() {
