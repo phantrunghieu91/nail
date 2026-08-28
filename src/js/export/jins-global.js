@@ -78,16 +78,26 @@ document.addEventListener('DOMContentLoaded', () => {
     init() {
       try {
         const bookingBtn = document.querySelector('.fixed-social-icons__item[data-slug="booking"]');
-        if( !bookingBtn ) {
-          throw new Error('Booking toggle button can NOT be found!');
-        }
         const bookingPopover = document.querySelector('#booking-popover');
         if( !bookingPopover ) {
           throw new Error('Booking popover form can NOT be found!');
         }
 
+        const SEASON_KEY = 'is_popup_showed';
+
+        const popupTimeout = setTimeout(() => {
+          if( sessionStorage.getItem( SEASON_KEY ) !== 'true' ) {
+            bookingPopover.showPopover();
+            sessionStorage.setItem( SEASON_KEY, true );
+          }
+          clearTimeout( popupTimeout );
+        }, 1000);
+
+        if( !bookingBtn ) {
+          throw new Error('Booking toggle button can NOT be found!');
+        }
+
         bookingBtn.addEventListener('click', event => {
-          console.log('Open popover!');
           bookingPopover.showPopover();
         });
       } catch (error) {
