@@ -13,13 +13,13 @@ if( empty( $sectionData['service'] ) ) {
   <div class="section__inner">
     <div class="our-services__title-wrapper">
       <?php if( !empty( $sectionData['sub_title'] ) ) : ?>
-        <span class="section__sub-title"><?= esc_html( $sectionData['sub_title'] ) ?></span>
+        <span class="section__sub-title section__sub-title--center"><?= esc_html( $sectionData['sub_title'] ) ?></span>
       <?php endif ?>
       <?php if( !empty( $sectionData['title'] ) ) : ?>
-        <h2 class="section__title"><?= esc_html( $sectionData['title'] ) ?></h2>
+        <h2 class="section__title section__title--center"><?= esc_html( $sectionData['title'] ) ?></h2>
       <?php endif ?>
       <?php if( !empty( $sectionData['description'] ) ) : ?>
-        <div class="section__description"><?= wp_kses_post( $sectionData['description'] ) ?></div>
+        <div class="section__description section__description--center"><?= wp_kses_post( $sectionData['description'] ) ?></div>
       <?php endif ?>
     </div>
     <div class="our-services__services">
@@ -41,11 +41,11 @@ if( empty( $sectionData['service'] ) ) {
                 <div class="jins-card__excerpt line-clamp"><?= wp_kses_post( $service['description'] ) ?></div>
               <?php endif ?>
               <?php if( !empty( $service['link_to']['label'] ) ) {
-                get_template_part('gpw-templates/global/jins-button', null, [
+                get_template_part( 'gpw-templates/global/jins-button', null, [
                   'label' => $service['link_to']['label'],
-                  'href' => $url,
+                  'href'  => $url,
                   'class' => 'jins-card__read-more'
-                ]);
+                ] );
               } ?>
             </div>
           </article>
