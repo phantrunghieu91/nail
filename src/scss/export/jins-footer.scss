@@ -181,11 +181,12 @@
   --_spacing-with-outer: 1rem;
   --_outer-border-radius: calc( var(--_border-radius) + var(--_spacing-with-outer) / 2);
   --_translate-y: 5rem;
+  --_space-between-control: var(--spacing-125);
 
   isolation: isolate;
   display: none;
-  padding: var(--spacing-200);
-  width: min( 25rem, 100% - 1.25rem );
+  padding: clamp(var(--spacing-125), 3vw, var(--spacing-200));
+  width: min( 25rem, 100% - var(--_spacing-with-outer) * 2 - 1rem );
   overflow: visible;
   outline: .0625rem solid var(--color-surface-dim);
   border-radius: var(--_border-radius) 0;
@@ -256,15 +257,20 @@
     }
 
     &-form-control {
+      margin-block-end: var(--_space-between-control);
       border-color: var(--_form-control-border-color);
     }
 
     &__form-group {
       padding: .625rem;
-      margin-block-end: 1em;
+      margin-block-end: var(--_space-between-control);
       border: .0625rem solid var(--_form-control-border-color);
       border-radius: .3125rem;
       background-color: var(--color-surface);
+
+      label {
+        margin-block-end: 0;
+      }
     }
 
     input[type=checkbox] {
