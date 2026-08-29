@@ -4,7 +4,7 @@
  * * Template: Global - Customer review
  */
 $sectionData = get_field( 'customer_review' , 'jins_settings' );
-if( empty( $sectionData['review'] ) || is_page([32]) ) {
+if( empty( $sectionData['review'] ) ) {
   return;
 }
 $reviews         = $sectionData['review'];

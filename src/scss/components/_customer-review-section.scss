@@ -72,6 +72,7 @@
     margin-block-start: var(--spacing-250);
 
     .swiper-slide {
+      height: auto;
       width: calc( (100% - (var(--_slides-per-view) - 1) * var(--_space-between)) / var(--_slides-per-view) );
       margin-inline-end: var(--_space-between);
 
@@ -86,6 +87,7 @@
     --_platform-icon-size: 1.25rem;
 
     padding: var(--_padding-content);
+    height: 100%;
     border-radius: .625rem;
     overflow: hidden;
     background-color: var(--color-surface);
