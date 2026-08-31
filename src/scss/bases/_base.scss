@@ -100,10 +100,10 @@
     background-color: var(--color-surface, var(--wp--preset--color--white));
     color: var(--color-on-surface, #000);
 
-    section:not(.hero) {
+    section:where(:not(.hero)) {
       padding-block-start: var(--space-between-section);
 
-      &:last-child {
+      &:where(:not(.jins-banner)):last-child {
         margin-block-end: var(--space-between-section);
       }
     }
@@ -149,6 +149,15 @@
 
   html:has([popover]:popover-open) {
     overflow: hidden;
+  }
+
+  .jins-banner {
+    &__image {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
   }
 }
 

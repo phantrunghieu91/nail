@@ -11,4 +11,6 @@ get_template_part( 'gpw-templates/about-page/introduction-section' );
 
 get_template_part( 'gpw-templates/about-page/mission-vision-section' );
 
+get_template_part( 'gpw-templates/global/sub-banner-section' );
+
 get_template_part( 'gpw-templates/global/footer' );
