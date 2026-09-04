@@ -21,29 +21,15 @@ if( empty ( $sectionData['package'] ) ) {
     <main class="packages__main">
       <?php foreach( $sectionData['package'] as $package ) :
         $slideItems = [];
-        $slug = sanitize_title( $package['name'] );
-        foreach( $package['images'] as $imgID ) {
-          $slideItems[] = sprintf( '<a href="%s" data-fancybox="gallery-%s">%s</a>',
-            wp_get_attachment_image_url( $imgID, 'full' ),
-            esc_attr( $slug ),
-            wp_get_attachment_image( $imgID, 'large', false, ['alt' => $package['name'] ] )
-          );
-        }
+        $slug       = sanitize_title( $package['name'] );
         ?>
-        <article class="jins-card packages__item" data-slug="<?= esc_attr( $slug ) ?>">
-          <div class="jins-card__thumbnail">
-            <?php if( empty( $slideItems ) ) {
-              wp_get_attachment_image( PLACEHOLDER_IMAGE_ID, 'large', false, ['alt' => $package['name']] );
-            } else {
-              get_template_part( 'gpw-templates/global/swiper-template', null, [ 'slide_items' => $slideItems, 'has_nav' => true ] );
-            } ?>
-          </div>
-          <div class="jins-card__content">
+        <article class="packages__item" data-slug="<?= esc_attr( $slug ) ?>">
+          <header class="packages__item-header">
             <?php if( !empty( $package['name'] ) ) : ?>
-              <h3 class="jins-card__title"><?= esc_html( $package['name'] ) ?></h3>
+              <h3 class="packages__item-title"><?= esc_html( $package['name'] ) ?></h3>
             <?php endif ?>
             <?php if( !empty( $package['description'] ) ) : ?>
-              <div class="jins-card__excerpt"><?= wp_kses_post( $package['description'] ) ?></div>
+              <div class="packages__item-excerpt"><?= wp_kses_post( $package['description'] ) ?></div>
             <?php endif ?>
             <div class="packages__item-meta">
               <?php if( !empty( $package['place'] ) ) : ?>
@@ -55,6 +41,19 @@ if( empty ( $sectionData['package'] ) ) {
                 </div>
               <?php endif ?>
             </div>
+          </header>
+          <div class="packages__item-images">
+            <?php if( empty( $package['images'] ) ) {
+              wp_get_attachment_image( PLACEHOLDER_IMAGE_ID, 'large', false, ['alt' => $package['name']] );
+            } else {
+              foreach( $package['images'] as $imgID ) {
+                echo sprintf( '<a href="%s" data-fancybox="gallery-%s">%s</a>',
+                  wp_get_attachment_image_url( $imgID, 'full' ),
+                  esc_attr( $slug ),
+                  wp_get_attachment_image( $imgID, 'large', false, ['alt' => $package['name'] ] )
+                );
+              }
+            } ?>
           </div>
         </article>
       <?php endforeach ?>

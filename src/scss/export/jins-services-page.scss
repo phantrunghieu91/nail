@@ -168,45 +168,21 @@
   &__main {
     width: min( var(--screen-lg), 100%);
     margin-inline: auto;
-    display: grid;
-    grid-template-columns: repeat(var(--_cols, 1), minmax(0, 1fr));
-    gap: var(--spacing-375);
-  }
-
-  .jins-card {
-    --_card-border-radius: var(--_package-border-radius);
-
-    padding: var(--_package-padding);
-    background-color: var(--color-surface);
-    overflow: hidden;
-
-    &__thumbnail {
-      --_card-thumbnail-aspect-ratio: 1/1;
-      border-radius: calc( var(--_package-border-radius) - var(--_package-padding) / 2 );
-
-      .swiper, .swiper-wrapper, .swiper-slide {
-        height: 100%;
-      }
-
-      .swiper-slide {
-        a, img {
-          display: block;
-          width: 100%;
-          height: 100%;
-        }
-
-        img {
-          object-fit: cover;
-        }
-      }
-    }
-
-    &__excerpt {
-      margin-block-end: var(--spacing-250);
-    }
   }
 
   &__item {
+    & + & {
+      margin-block-start: var(--spacing-600);
+    }
+    
+    &-header {
+      margin-block-end: var(--spacing-400);
+    }
+
+    &-title, &-excerpt {
+      text-align: center;
+    }
+    
     &-meta {
       display: flex;
       gap: var(--spacing-250);
@@ -222,9 +198,9 @@
     &-price {
       text-align: right;
     }
-  }
-  
-  @include container-query( content, md, gt ) {
-    --_cols: 2;
+
+    &-images {
+      display: flex;
+    }
   }
 }

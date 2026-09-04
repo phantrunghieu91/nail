@@ -2,7 +2,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const packageCtrl = {
     init() {
       try {
-        this.initSwiper();
+        this.wrapperEls = [...document.querySelectorAll('.packages__item')];
+        if( this.wrapperEls.length == 0 ) {
+          throw new Error('Swiper elements can NOT be found!');
+        }
+        // this.initSwiper();
         this.bindFancybox();
       } catch (error) {
         console.warn('PACKAGE SECTION ERROR: ', error);
@@ -12,10 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if( typeof Swiper === undefined ) {
         throw new Error('Swiper library have NOT registered!');
       }
-      this.wrapperEls = [...document.querySelectorAll('.packages__item')];
-      if( this.wrapperEls.length == 0 ) {
-        throw new Error('Swiper elements can NOT be found!');
-      }
+      
       this.wrapperEls.forEach( wrapperEl => {
         const swiperEl = wrapperEl.querySelector('.swiper');
         new Swiper( swiperEl, {
